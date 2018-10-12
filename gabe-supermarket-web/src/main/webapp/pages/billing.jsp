@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Gacheni FP Services | Members</title>
+        <title>Gabe Supermarket | Billing</title>
 
         <link rel="apple-touch-icon" href="apple-icon.png">
         <link rel="shortcut icon" href="favicon.ico">
@@ -38,18 +38,21 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="./"><img src="assets/images/logo.png" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="./"><img src="assets/images/logo2.png" alt="Logo"></a>
+                    <a class="navbar-brand" href="./">Gabe Supermarket</a>
+                    <a class="navbar-brand hidden" href="./">G</a>
                 </div>
 
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="home"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <li >
+                            <a href="home"> <i class="menu-icon fa fa-dashboard"></i>Home</a>
                         </li>
                         <li>
-                            <a href="members"> <i class="menu-icon fa fa-users"></i>Members</a>
-                        </li>                       
+                            <a href="billing"> <i class="menu-icon fa fa-money"></i>Billing</a>
+                        </li>
+                        <li class="active">
+                            <a href="products"> <i class="menu-icon fa fa-address-book-o"></i>Products</a>
+                        </li>          
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </nav>
@@ -59,7 +62,7 @@
 
         <!-- Right Panel -->
 
-        <div id="right-panel" class="right-panel" ng-app = "gfpApp" ng-controller="GFPMembersController as $ctrl">
+        <div id="right-panel" class="right-panel" ng-app = "hmsApp" ng-controller="BillingController as $ctrl">
 
             <!-- Header-->
             <header id="header" class="header">
@@ -96,7 +99,7 @@
                 <div class="col-sm-4">
                     <div class="page-header float-left">
                         <div class="page-title">
-                            <h1>Members</h1>
+                            <h1>Billing</h1>
                         </div>
                     </div>
                 </div>               
@@ -109,32 +112,35 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <strong class="card-title">All Members</strong>
+                                    <strong class="card-title">Invoices</strong>
                                 </div>
                                 <div class="card-body">
                                     <table id="bootstrap-data-table" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Surname</th>
-                                                <th>Telephone</th>
-                                                <th>Age</th>
+                                                <th>Invoice#</th>
+                                                <th>Client</th>
+                                                <th>Invoice Date</th>
+                                                <th>Due Date</th>
+                                                <th>Amount Paid</th>
+                                                <th>Balance Due</th>
+                                                <th>Total Due</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr ng-repeat="member in $ctrl.members track by $index">
-                                                <td>{{member.fullName}}</td>
-                                                <td>{{member.lastName}}</td>
-                                                <td>{{member.telephone}}</td>
-                                                <td>{{member.age}}</td>   
-                                                <td width="20%">                                                    
-                                                    <button type="button" class="btn btn-danger btn-sm" ng-click="$ctrl.addviewPatient(member)" data-toggle="modal" data-target="#largeModal">
-                                                        <i class="fa fa-ban"></i> Edit
-                                                    </button>  
-                                                    <button type="button" class="btn btn-primary btn-sm" ng-click="$ctrl.addBeneficiaryPatient()">
-                                                        <i class="fa fa-dot-circle-o"></i> Beneficiaries 
-                                                    </button>
+                                            <tr ng-repeat="invoice in $ctrl.invoices track by $index">
+                                                <td>{{invoice.id}}</td>
+                                                <td>{{invoice.client}}</td>
+                                                <td>{{invoice.invoiceDate}}</td>
+                                                <td>{{invoice.dueDate}}</td>   
+                                                <td>{{invoice.amountPaid}}</td>   
+                                                <td>{{invoice.balanceDue}}</td>   
+                                                <td>{{invoice.totalBalanceDue}}</td>   
+                                                <td width="10%">                                                    
+                                                    <button type="button" class="btn btn-primary btn-sm" ng-click="$ctrl.addViewInvoice(invoice)" data-toggle="modal" data-target="#largeModal">
+                                                        <i class="fa fa-ban"></i> View/Edit
+                                                    </button> 
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -354,7 +360,7 @@
         <script src="<c:url value='/assets/js/ui-bootstrap-tpls-2.5.0.min.js'/>"></script>
 
         <script src="<c:url value='/assets/js/app.js'/>"></script>
-        <script src="<c:url value='/assets/js/members/controller.js'/>"></script>
+        <script src="<c:url value='/assets/js/controller/billing-controller.js'/>"></script>
 
         <script type="text/javascript">
                                     $(document).ready(function () {

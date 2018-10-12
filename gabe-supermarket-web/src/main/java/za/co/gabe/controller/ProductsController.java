@@ -18,28 +18,28 @@ public class ProductsController {
     private ProductServiceProxy productServiceProxy;
 
     @PostMapping("/addProduct")
-    private void addProduct(String productJsonObj) throws Exception {
+    public void addProduct(String productJsonObj) throws Exception {
         productServiceProxy.addProduct(productJsonObj);
     }
 
     @PostMapping("/updateProduct")
-    private void updateProduct(String productJsonObj) throws Exception {
+    public void updateProduct(String productJsonObj) throws Exception {
         productServiceProxy.updateProduct(productJsonObj);
     }
 
     @PostMapping("/deleteProduct")
-    private void deleteProduct(String productJsonObj) throws Exception {
+    public void deleteProduct(String productJsonObj) throws Exception {
         productServiceProxy.deleteProduct(productJsonObj);
     }
 
     @GetMapping("/findProductById/{productId}")
-    private String findProductById(@PathVariable("productId") long productId) {
+    public String findProductById(@PathVariable("productId") long productId) {
         return productServiceProxy.findProductById(productId);
 
     }
 
-    @GetMapping("/findAll")
-    private String findAll() {
+    @GetMapping("/findAllProducts")
+    public String findAllProducts() {
         return productServiceProxy.findAllProducts();
     }
 

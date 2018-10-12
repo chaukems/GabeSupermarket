@@ -16,7 +16,7 @@ public class AppController {
     Gson gson;
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String appointmentPage(ModelMap model) {
+    public String homePage(ModelMap model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth == null) {
             return "/";
@@ -25,13 +25,23 @@ public class AppController {
         }
     }
 
-    @RequestMapping(value = "/members", method = RequestMethod.GET)
-    public String reorderPage() {
+    @RequestMapping(value = "/products", method = RequestMethod.GET)
+    public String productsPage() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth == null) {
             return "/";
         } else {
-            return "members";
+            return "products";
+        }
+    }
+
+    @RequestMapping(value = "/billing", method = RequestMethod.GET)
+    public String billingPage() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth == null) {
+            return "/";
+        } else {
+            return "billing";
         }
     }
 

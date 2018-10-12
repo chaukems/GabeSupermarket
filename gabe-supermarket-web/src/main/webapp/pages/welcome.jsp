@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Gacheni FP Services | Home</title>
+        <title>Gabe Supermarket | Home</title>
 
         <link rel="apple-touch-icon" href="apple-icon.png">
         <link rel="shortcut icon" href="favicon.ico">
@@ -34,8 +34,8 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="./"><img src="assets/images/logo.png" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="./"><img src="assets/images/logo2.png" alt="Logo"></a>
+                    <a class="navbar-brand" href="./">Gabe Supermarket</a>
+                    <a class="navbar-brand hidden" href="./">G</a>
                 </div>
 
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -44,8 +44,11 @@
                             <a href="home"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                         </li>
                         <li>
-                            <a href="members"> <i class="menu-icon fa fa-users"></i>Members</a>
-                        </li>                       
+                            <a href="billing"> <i class="menu-icon fa fa-money"></i>Billing</a>
+                        </li>
+                        <li class="active">
+                            <a href="products"> <i class="menu-icon fa fa-address-book-o"></i>Products</a>
+                        </li>                      
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </nav>

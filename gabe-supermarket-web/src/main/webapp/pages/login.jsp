@@ -23,7 +23,7 @@
         <nav class="navbar navbar-inverse">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Welcome to Gacheni FP Services &trade;</a>
+                    <a class="navbar-brand" href="#">Welcome to Gabe Supermarket &trade;</a>
                 </div>               
             </div>
         </nav>

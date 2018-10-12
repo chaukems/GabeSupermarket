@@ -22,7 +22,14 @@ public class BillingServiceProxyImpl implements BillingServiceProxy {
 
     @Override
     public void addInvoice(String invoiceJsonObj) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Map<String, String> uriVariables = new HashMap<>();
+        uriVariables.put("productJsonObj", invoiceJsonObj);
+
+        ResponseEntity<String> responseEntity = new RestTemplate().getForEntity(
+                "http://localhost:8000/save/{productJsonObj}", String.class,
+                uriVariables);
+
+        String response = responseEntity.getBody();
     }
 
     @Override
@@ -37,63 +44,30 @@ public class BillingServiceProxyImpl implements BillingServiceProxy {
 
     @Override
     public String findInvoiceById(long invoiceId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        Map<String, Long> uriVariables = new HashMap<>();
+        uriVariables.put("invoiceId", invoiceId);
+
+        ResponseEntity<String> responseEntity = new RestTemplate().getForEntity(
+                "http://localhost:8000/findById/{invoiceId}", String.class,
+                uriVariables);
+
+        String response = responseEntity.getBody();
+
+        return response;
     }
 
     @Override
     public String findAllInvoices() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    /* @Override
-    public void addProduct(String productJsonObj) throws Exception {
-         Map<String, String> uriVariables = new HashMap<>();
-        uriVariables.put("productJsonObj", productJsonObj);
-
-        ResponseEntity<String> responseEntity = new RestTemplate().getForEntity(
-                "http://localhost:8100/findById/{productId}", String.class,
-                uriVariables);
-
-        String response = responseEntity.getBody();
-
-    }
-
-    @Override
-    public void updateProduct(String productJsonObj) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void deleteProduct(String productJsonObj) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String findProductById(long productId) {
 
         Map<String, Long> uriVariables = new HashMap<>();
-        uriVariables.put("productId", productId);
 
         ResponseEntity<String> responseEntity = new RestTemplate().getForEntity(
-                "http://localhost:8100/findById/{productId}", String.class,
+                "http://localhost:8000/findAll", String.class,
                 uriVariables);
 
         String response = responseEntity.getBody();
 
         return response;
     }
-
-    @Override
-    public String findAll() {
-
-        Map<String, Long> uriVariables = new HashMap<>();
-
-        ResponseEntity<String> responseEntity = new RestTemplate().getForEntity(
-                "http://localhost:8100/findAll", String.class,
-                uriVariables);
-
-        String response = responseEntity.getBody();
-
-        return response;
-    }*/
 }

@@ -4,6 +4,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+
 <link href="<c:url value='/static/css/bootstrap.min.css'/>" rel="stylesheet"> 
 <link href="<c:url value='/static/css/font-awesome.css'/>" rel="stylesheet"> 
 

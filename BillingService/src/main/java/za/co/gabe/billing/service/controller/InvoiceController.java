@@ -25,18 +25,19 @@ public class InvoiceController {
     @Autowired
     private InvoiceRepository invoiceDao;
 
-    @PostMapping("/invoices")
-    private Invoice addInvoice(@RequestBody Invoice invoice) {
+    @PostMapping("/save")
+    public Invoice addInvoice(@RequestBody Invoice invoice) {
         return invoiceDao.save(invoice);
     }
 
-    @GetMapping("/invoices")
-    private List<Invoice> viewAllInvoices() {
+    @GetMapping("/findAll")
+    public List<Invoice> viewAllInvoices() {
         return invoiceDao.findAll();
     }
 
-    @GetMapping("/invoices/{id}")
-    private Invoice viewInvoice(@PathVariable Long id) {
+    @GetMapping("/findById/{id}")
+    public Invoice viewInvoice(@PathVariable Long id) {
         return invoiceDao.findById(id);
     }
+
 }
